@@ -34,8 +34,60 @@
 // const user = new User();
 // console.log(user);
 
-const user = {
-    name:"bora",
-    age:22
+// const user = {
+//     name:"bora",
+//     age:22
+// }
+// console.log('user: ', user);
+
+// const userA = {
+//     name:"bora",
+//     age:22,
+// }
+
+// const userB = {
+//     name:"sean",
+//     age:24,
+//     parent:userA,
+// }
+
+// console.log(userB.parent.name); //bora
+// console.log(userB['parent']['name']) //bora
+// const users = [userA, userB];
+// console.log(users[1].parent.name) //bora
+// console.log(users[1]['parent']['name']) //bora
+
+
+console.log(typeof 'Hello' === 'string'); //true
+console.log(typeof 123 === 'number'); //true
+console.log(typeof false === 'boolean'); //true
+console.log(typeof undefined === 'undefined'); //true
+console.log(typeof null === 'null'); //false
+console.log(typeof '' === 'null'); //false
+console.log(typeof null); //Object
+//conclusion//
+console.log(typeof null==='object') //true
+
+
+console.log(typeof [] === 'object') //true
+console.log(typeof {} === 'object') //true 
+console.log(typeof function() {} === 'function') //true
+
+console.log([].constructor === Array) // true
+console.log({}.constructor === Object) // true
+
+
+//!
+function checkType(data) {
+    return Object.prototype.toString.call(data).slice(8, -1)
 }
-console.log('user: ', user);
+
+console.log(checkType(112))
+console.log(checkType("112"))
+console.log(checkType(false))
+console.log(checkType(undefined))
+console.log(checkType(null))
+console.log(checkType([]))
+console.log(checkType({}))
+console.log(checkType(function(){}))
+

@@ -16,13 +16,17 @@
 //  -> console.log(typeof(Number((0.1+0.2).toFixed(2)))); //~ number
 // 005-3. Boolean, null, undefined
 //  -> true or false
+//  -> FALSE 인 경우 => 1)false, 2)0, 3)null, 4)undefined, 5)NaN, 6)'', 7)0n (BigInt 라고 부름)
 //~참조형 데이터 
 // 006-1. Array 데이터
 //  -> const alphabet = ["a","b","c"]; console.log(alphabet[1]) //"b" => 인덱싱한다고 표현
 // 006-2 Object 데이터
 //  -> age:22 명칭 => key==속성==property : value==값
 //  -> 생성자 방식 const user = new Object(); user.name = "bora"; user.age=22 console.log(user) 
-//  -> //{name: 'bora', age: 22}
-//  -> function User() { this.name = "bora" this.age = 22 } const user = new User(); console.log(user);
-//  -> // User {name: 'bora', age: 22}
+//      -> //{name: 'bora', age: 22}
+//      -> function User() { this.name = "bora" this.age = 22 } const user = new User(); console.log(user);
+//      -> // User {name: 'bora', age: 22}
 //  -> 리터럴 방식 => 생성자 방식보다 간편하고 쉬움
+// 006-3 function 데이터
+
+// 

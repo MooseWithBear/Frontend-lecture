@@ -76,7 +76,6 @@ console.log('bora1.getFullName.call(parang): ', bora1.getFullName.call(parang));
 
 
 //~ 방법 2. 프로토타입을 통해 함수를 찍어내는 공장을 만든다.
-
 function User (first,last) { // 공장(Prototype, Class)은 앞글자를 대문자로 사용하는 Pascal case 로 만든다.
     this.firstName = first
     this.lastName = last
@@ -84,10 +83,27 @@ function User (first,last) { // 공장(Prototype, Class)은 앞글자를 대문�
 User.prototype.getFullName = function () { // 프로토타입 함수을 정의할 때는 화살표 함수는 사용할 수 없다
     return `${this.firstName} ${this.lastName}` //보간법
 }
-
 const bora2 = new User('a', 'b')
 const parang2 = new User('c','d')
 console.log('bora2.getFullName(): ', bora2.getFullName()); // a b
 console.log('parang2.getFullName(): ', parang2.getFullName()); // c d
 
 //~ 방법 3. ES6 2015에 추가된 Class를 사용한다.
+class User2 {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+    getFullName() {
+        return `${this.firstName} ${this.lastName}` //보간법
+    }
+}
+
+const bora3 = new User2 ('a', 'b');
+const parang3 = new User2 ('c','d');
+console.log(bora3.getFullName()) // a b
+console.log(parang3.getFullName()) // c d
+
+
+
+//! Getter와 Setter

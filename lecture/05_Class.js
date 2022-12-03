@@ -89,8 +89,8 @@ console.log('bora2.getFullName(): ', bora2.getFullName()); // a b
 console.log('parang2.getFullName(): ', parang2.getFullName()); // c d
 
 //~ 방법 3. ES6 2015에 추가된 Class를 사용한다.
-class User2 {
-    constructor(first, last) {
+class User2 {    //소괄호 없음
+    constructor(first, last) { //constructor가 기존의 function의 역할을 한다.
         this.firstName = first
         this.lastName = last
     }
@@ -106,4 +106,20 @@ console.log(parang3.getFullName()) // c d
 
 
 
-//! Getter와 Setter
+//! Getter(값을 얻는 용도의 메소드)와 Setter (값을 지정하는 용도의 메소드)
+class User4 {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+    get fullName() { //^ get을 사용한다면, 값을 얻어내는데에 쓸 수 있게 된다.
+        return `${this.firstName} ${this.lastName}` //보간법
+    }
+    set fullName(value) { //^ 
+        console.log(value)
+    }
+}
+const bora4 = new User4('aa', 'bb');
+console.log(bora4.fullName) 
+
+bora4.fullName = 'cc dd'

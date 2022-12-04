@@ -143,22 +143,35 @@ class User5 {
     getFullName() {
         return `${this.firstName} ${this.lastName}`
     }
-    static isUser() {
-        return true
+    static isUser(user) {
+        // return true1
+        //
+        if (user.firstName && user.lastName) {
+            return true
+        }
+        return false
     }
 }
 const bora5 = new User5('a5', 'b5');
 const parang5 = new User5('c1', 'd1');
+const red = {
+    name: 'e f',
+    age:5
+}
 
 // console.log(User.getFullName()); // 에러발생 TypeError: User.getFullName is not a function
 //& 기본적으로 User5 클래스에서 인스턴스 없이 직접적으로 getFullName methods를 호출 할 수 없다. 별도의 인스턴스를 만들어 호출해야함
 
 // 하지만 만약에 바로 호출하고 싶다면 어떻게 해야할까?
 // method 앞에 'static' 이라는 키워드를 넣어 Static Method로서 사용하면 instance 없이도 클래스 자체에서 사용할 수 있게된다.
-console.log(User.isUser());
-console.log('User5.isUser): ', User5.isUser()); //true
+// console.log(User5.isUser());
+// console.log('User5.isUser): ', User5.isUser()); //true1
 
 // 그리고 반대로 정적 메소드(static method)는 instance를 사용해 호출하게되면 에러가 발생한다.
 // console.log(bora5.isUser()) // 에러발생 TypeError: User.isUser is not a function
 
+console.log(User5.isUser(bora5)) //true //bora5 데이터는 firstName, lastName을 갖고 있음
+console.log(User5.isUser(red)) //false //red 데이터는 firstName, lastName을 갖고 있음
 
+
+//! 상속(Inheritance)

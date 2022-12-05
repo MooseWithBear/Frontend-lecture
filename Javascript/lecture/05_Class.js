@@ -175,3 +175,10 @@ console.log(User5.isUser(red)) //false //red 데이터는 firstName, lastName을
 
 
 //! 상속(Inheritance)
+
+
+//! extends
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/extends
+//extends 키워드는 클래스를 다른 클래스의 자식으로 만들기 위해 class 선언 또는 class 식에 사용됩니다.
+// class ChildClass extends ParentClass { ... }
+

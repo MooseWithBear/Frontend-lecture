@@ -5,6 +5,7 @@
 //length : str, arr
 //includes() : boolean
 //indexOf() : index, -1
+//lastIndexOf() : 뒤에서부터 index
 //padEnd() : (자리수가 n보다 짧으면, 길이가 n이 될 때까지 ''을 뒤쪽에 채워넣는다.)
 //padStart() : (자리수가 n보다 짧으면, 길이가 n이 될 때까지 ''을 앞쪽에 채워넣는다.)
 //replace() : 대상 문자에서 패턴(문자,정규식)과 '첫번째로' 일치하는 부분만을 교체하여 새로운 문자를 반환한다.
@@ -59,6 +60,7 @@
 // .concat() : 대상배열과 주어진 배열을 병합해 새로운 배열을 반환한다. const arr3 = arr1.concat(arr2)
 // 또는 전개연산자를 사용할수도 있다. const arr3 = [...arr1, ...arr2]
 // 반복 .every() : 배열내에서 반복하며 모든 요소가 콜백 테스트에서 통과(true)하는지 반환하는지 확인한다. 하나라도 false면 false; arr.every(x => x < 5) // true
+// 반복 .some() : 대상 배열의 어떤요소라도 콜백 테스트를 통과하는지 확인한다. 하나라도 true면 true 반환. const arr = [1,2,3,4]; console.log(arr.some(x => x>3));
 // 반복 .map() : 배열내에서 반복하며 길이만큼 주어진 콜백을 진행하고, 콜백반환값을 모아 새로운 배열을 반환한다. numbers.map(x => x*2) // [2,4,6,8]
 // 반복 .filter() : 배열내에서 반복하며 주어진 콜백 테스트를 통과(true)하는 모든 요소를 새로운 배열로 반환한다. 모두 false면 빈배열 반환; arr.filter(x => x < 5) // [1,2,3]
 //                객체배열의 경우. const users = [{name:"Neo", age:99},{name:"Amy", 5}] const adults = users.filter(x => s.age >= 19) // {name:"Neo", age:99}
@@ -72,11 +74,25 @@
 // .join() : 대상 배열의 모든 요소를 구분자로 연결한 문자를 반환한다. arr.join(), (','), (' / ')
 // .pop() : 대상 배열의 마지막 요소를 제거하고 그 요소를 반환한다. 원본도 변경된다.
 // .push() : 대상 배열의 마지막에 하나 이상의 요소를 추가하고, 새로운 길이를 반환한다. 원본도 변경된다. newLength = a.push("n") // newLength=3, a=[]
-// .reduce()
-
-
-
-//splice() : 
+// .shift() : 대상 배열에서 첫번째 요소를 제거하고 제거된 요소를 반환한다. 원본도 변경된다
+// 반복 .reduce() : 대상 배열의 길이만큼 주어진 콜백을 실행하고, 마지막에 호출되는 콜백의 반환 값을 (누적)반환합니다. const numbers = [1,2,3]; const sum = numbers.reduce((acc, cur) => {return acc + cur}, 0) // 6 (0+1),(1+2),(3+3) //^ acc의 초기 값은 0으로 지정된 것이고, cur은 numbers 배열을 순서대로 순환한다. 그리고 그 다음 a값은 이전 리턴값인(0+numbers[0]) 1이 된다.
+                    {   //객체데이터를 reduce()로 활용
+                        // const users = [
+                        //     {name: "Neo", age:100},
+                        //     {name: "Peo", age:200},
+                        //     {name: "Keo", age:300},
+                        // ]
+                        // //총 나이합산
+                        // const totalAge = users.reduce((acc,cur) => {return acc + cur.age} , 0)
+                        // console.log(totalAge);
+                        // //모든 이름 추출
+                        // const nameArray = users.reduce((acc,cur) => {acc.push(cur.name); return acc}, []).join(', ');
+                        // console.log('nameArray: ', nameArray);
+                    }                                                                               
+// .reverse() : 대상 배열의 순서를 반전하고, 원본도 변경된다.
+// .slice() : 문자도 가능// 대상 배열의 일부를 추출해 새로운 배열을 반환한다. (첫번째 인수부터 ~ 두번째 인수 직전까지 호출하고, 생략하면 끝까지 추출)
+// .sort() : 대상 배열을 콜백의 반환 값(음수,양수,0)에 따라 정렬한다. 콜백을 지정하지 않으면 요소를 문자열로 반환 후 유니코드 코드 포인트 순서로 정렬한다.users.sort((a,b) => a.age-b.age)// 객체의 나이 순서대로 정렬
+//splice() : 대상 배열애 요소를 추가하거나 삭제하거나 교체한다. 원본이 변경된다. arr.splice(2,0,'add') // ["a", "b", "add" "c"] -> arr[2]인덱스에서부터(본요소는 카운트에서 제외함) 0개의 요소를 삭제하고, 'add'라는 string을 그 위치에 추가해준다. 기존 데이터는 밀려남
 
 //^ 콜백이란?
 // 자바스크립트에서 콜백(callback)은 함수의 인자(매개변수)로 전달(사용)되는 함수를 의미한다. 

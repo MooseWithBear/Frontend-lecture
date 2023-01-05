@@ -77,7 +77,7 @@
 // .shift() : 대상 배열에서 첫번째 요소를 제거하고 제거된 요소를 반환한다. 원본도 변경된다
 // .unshift() : 새로운 요소를 대상배열의 맨 앞에 추가하고 새로운 배열의 길이를 반환한다. 원본도 변경된다 console.log(arr.unshift("x")) // 2 | console.log(arr) // ["x", "a"]
 // 반복 .reduce() : 대상 배열의 길이만큼 주어진 콜백을 실행하고, 마지막에 호출되는 콜백의 반환 값을 (누적)반환합니다. const numbers = [1,2,3]; const sum = numbers.reduce((acc, cur) => {return acc + cur}, 0) // 6 (0+1),(1+2),(3+3) //^ acc의 초기 값은 0으로 지정된 것이고, cur은 numbers 배열을 순서대로 순환한다. 그리고 그 다음 a값은 이전 리턴값인(0+numbers[0]) 1이 된다.
-                    {   //객체데이터를 reduce()로 활용
+                    {   // 4개요소 설명 및 객체데이터를 reduce()로 활용
                         // const users = [
                         //     {name: "Neo", age:100},
                         //     {name: "Peo", age:200},
@@ -89,6 +89,16 @@
                         // //모든 이름 추출
                         // const nameArray = users.reduce((acc,cur) => {acc.push(cur.name); return acc}, []).join(', ');
                         // console.log('nameArray: ', nameArray);
+                        //~~~~
+                        // array.reduce(function(accumulator, currentValue, currentIndex, array) {
+                            코드
+                        //   }, initialValue);
+                        
+                        // accumulator: 이전 콜백 함수의 반환값. 첫 번째 요소가 처리될 때는 initialValue가 사용된다.
+                        // currentValue: 배열의 현재 요소
+                        // currentIndex: 현재 요소의 인덱스. 선택 사항.
+                        // array: 원본 배열. 선택 사항
+                        // initialValue: 선택 사항으로, 지정되지 않은 경우에는 배열의 첫 번째 요소가 사용되며, 지정한 경우에는 콜백 함수의 첫 번째 인수로 전달된다.
                     }                                                                               
 // .reverse() : 대상 배열의 순서를 반전하고, 원본도 변경된다.
 // .slice() : 문자도 가능// 대상 배열의 일부를 추출해 새로운 배열을 반환한다. (첫번째 인수부터 ~ 두번째 인수 직전까지 호출하고, 생략하면 끝까지 추출)

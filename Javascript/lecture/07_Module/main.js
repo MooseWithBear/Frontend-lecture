@@ -24,7 +24,8 @@
         //     const abc = await import('./module.js');
         //     console.log(abc)
         // }, 1000)
-
+// 04. utils(일종의hub)파일을 만들어서 여러 파일(a,b.js)들을 한 번에 내보낼 수 있다.
+        // import { a, b } from './utils.js'
 
 
 // import { hello } from './module.js'

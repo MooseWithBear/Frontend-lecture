@@ -36,4 +36,4 @@
 // console.log(number);
 
 //--------------------------------------------------------//
-import number, {str, arr, hello} from './module.js'
+// import number, {str, arr, hello} from './module.js'

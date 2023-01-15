@@ -50,12 +50,36 @@
         name: 'Kim',
         age:99,
         isValid:true,
-    }
+    };
 
-
-
+    //^ interface 사용방법 (중복된 타입을 사용할 때 코드를 줄일 수 있다.)
+    interface UserStandard {
+        name:string
+        age:number
+        isValid: boolean
+    };
+    const userB: UserStandard = {
+        name: 'Lee',
+        age:100,
+        isValid:false,
+    };
+    const userC: UserStandard = {
+        name: 'Kang',
+        age:22,
+        isValid:true,
+    };
 
 //* 함수
+    const add0: (x:number, y:number) => number = function (x,y) {return x+y}; //함수의 두 인수의 type은 number이고, return하는 값의 type도 number 이다. 라는 의미
+    const add1 = function (x:number ,y:number):number {return x+y}; // 위 코드랑 같은 의미. 처음에 타입을 명시하지 않더라도 함수 자체안에 타입을 명시할 수 있다.
+    const a: number = add0(1,2); const b: number = add1(1,2);
+    const hello0: () => void = function () {console.log('hi!')}; // 함수에서 return키워드를 사용하지 않으면 기본적으로 undefined를 반환하는데, 이를 타입스크립트에서는 void가 반환된다고 판단한다. 즉, 타입을 특정하지 않겠다는 명시를 한다고 보면 된다.
+    const hello1 = function ():void {console.log('hi!')}; // 위 코드랑 같은 의미.  처음에 타입을 명시하지 않더라도 함수 자체안에 타입을 명시할 수 있다.
+    const h: void = hello0(); //
+
+
+
+
 //* Any
 //* Unknown
 //* Tuple

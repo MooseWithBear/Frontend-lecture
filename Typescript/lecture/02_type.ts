@@ -78,8 +78,6 @@
     const h: void = hello0(); //
 
 
-
-
 //* Any
 //* Unknown
 //* Tuple

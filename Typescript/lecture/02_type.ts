@@ -77,9 +77,22 @@
     const hello1 = function ():void {console.log('hi!')}; // 위 코드랑 같은 의미.  처음에 타입을 명시하지 않더라도 함수 자체안에 타입을 명시할 수 있다.
     const h: void = hello0(); //
 
-
 //* Any
+    // 어느타입이든 가능하다는 의미. 그러나 타입스크립트의 본래 목적과 맞지 않기 때문에 잘 사용하진 않는다.
+    let hello: any = ' hello'; 
+        hello = 123;
+        hello = false;
+
 //* Unknown
+    // 아직 어떤데이터가 올지 모르니 unknown을 사용하겠다는 의미.\
+    // 단, 한번 타입이 할당되면 변하지 않는다.
+    const aa: any = 123; 
+    const bb: unknown = 123;
+        const any: any = aa; //aa는 any타입이기 때문에 에러가 발생하지 않는다. 
+        const boo: boolean = aa; //aa는 any타입이기 때문에 에러가 발생하지 않는다.
+        const any2: any = bb; // 최초 할당이기 때문에 문제가 없다. 
+        // const boo2: boolean = bb;  처음 할당된 타입과 다르기 때문에 에러가 발생했다.
+
 //* Tuple
 //* Void
 //* Never

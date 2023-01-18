@@ -84,7 +84,7 @@
         hello = false;
 
 //* Unknown
-    // 아직 어떤데이터가 올지 모르니 unknown을 사용하겠다는 의미.\
+    // 아직 어떤데이터가 올지 모르니 unknown을 사용하겠다는 의미.
     // 단, 한번 타입이 할당되면 변하지 않는다.
     const aa: any = 123; 
     const bb: unknown = 123;
@@ -94,7 +94,41 @@
         // const boo2: boolean = bb;  처음 할당된 타입과 다르기 때문에 에러가 발생했다.
 
 //* Tuple
+    // 타입과 변수 개수를 지정해준다. 개수나 타입의 순서가 맞지 않는 경우 에러가 발생한다.
+    const tuple: [string, number, boolean] = ['a',1,true,];
+    const users: [number, string, boolean][]
+            =   [[1,"kim",true],[2,"ang",false],[3,"kan",true]];
+
 //* Void
+    // return을 명시하지 않아 undefined를 반환하는 함수에서는, 타입을 undefined 대신 void를 사용하여야 한다.
+    function helloMan(msg: string): void {console.log(`hello ${msg}`);};
+    const hi: void = hello('world');
+    
 //* Never
+    // 절대 발생하지 않을 값을 의미한다. 타입을 지정하지 않으면 never의 타입이 붙는다.
+    // 즉 값을 지정하거나 추가하려고 시도하면 에러가 발생한다.
+    const nev: [] = [];
+    // nev.push(3) // 에러 발생
+    
 //* Union
+    // 여러 타입을 지정해줄 수 있다.
+    let union0: string | number; 
+        union0 = 'string'; // 정상작동
+        union0 = 10; // 정상작동
+        // union0 = false; // 에러발생
+
 //* Intersection
+    // 타입이 지정된 여러 객체데이터를 새로운 객체데이터에 합칠 수 있는 방법이다.
+    // 데이터의 타입이나 요소의 누락이 있는 경우 에러가 발생한다.
+    interface UserInfo {
+        name:string,
+        age:number,
+    }
+    interface Validation {
+        isValid: boolean,
+    }
+    const worker: UserInfo & Validation = {
+        name: 'Kim',
+        age: 20,
+        isValid: true,
+    }

@@ -7,15 +7,15 @@
 
 
 // 아래 코드를 실행하게 되면 console.log가 먼저 실행되는 것을 볼 수 있는데, 서버에서 데이터가 언제 보내주는지 정확히 알 수 없으니 다음 코드를 바로 실행하지 않고 기다리기 때문이다. (비동기)
-fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') // api를 통해 데이터를 요청(request)하고 서버에서 응답(res)하여 전송해준다.
-    // 
-    .then(res => res.json())
-    .then(res => console.log(res))
+// fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') // api를 통해 데이터를 요청(request)하고 서버에서 응답(res)하여 전송해준다.
+//     // 
+//     .then(res => res.json())
+//     .then(res => console.log(res))
     
 
-    console.log(1);
-    console.log(2);
-    console.log(3);
+//     console.log(1);
+//     console.log(2);
+//     console.log(3);
 
     // .then(res => {  // 이런식으로 작성하게 된다면 순서대로 api코드 이후에 console.log가 실행될 것이다.
     //     console.log(res)
@@ -53,4 +53,15 @@ fetch('https://www.omdbapi.com/?apikey=7035c60c&s=frozen') // api를 통해 데�
     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
     // 콜백 패턴
-    
+    // 콜백을 이용해 비동기패턴관리를 할 수 있다.
+    const a = (callback) => {
+        setTimeout(() => {
+            console.log(1)
+            callback()
+        }, 1000);
+    }
+    const b = () => console.log(2)
+
+    a(()=>{ // 이렇게 콜백패턴을 만들면 1이먼저 나온후2가 나타난다. callback의 매개변수로 b()가 되면서 1이먼저 나온후 콜백함수를 작동시키되 되면서 2가 출력된다.
+        b()
+    })

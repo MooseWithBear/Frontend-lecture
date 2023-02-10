@@ -56,28 +56,28 @@
 
     // 콜백 패턴
     // 콜백을 이용해 비동기패턴관리를 할 수 있다.
-    const a = (callback) => {
-        setTimeout(() => {
-            console.log(1)
-            callback()
-        }, 1000);
-    }
-    // const b = () => console.log(2)
-    const b = (callback) => {
-        setTimeout(() => {
-            console.log(2)
-            callback()
-        }, 1000);
-    }
+        // const a = (callback) => {
+        //     setTimeout(() => {
+        //         console.log(1)
+        //         callback()
+        //     }, 1000);
+        // }
+        // // const b = () => console.log(2)
+        // const b = (callback) => {
+        //     setTimeout(() => {
+        //         console.log(2)
+        //         callback()
+        //     }, 1000);
+        // }
 
-    const c = (callback) => {
-        setTimeout(() => {
-            console.log(3)
-            callback()
-        }, 1000);
-    }
+        // const c = (callback) => {
+        //     setTimeout(() => {
+        //         console.log(3)
+        //         callback()
+        //     }, 1000);
+        // }
 
-    const d = () => console.log(4)
+        // const d = () => console.log(4)
 
     //콜백지옥
     // a(()=>{ // 이렇게 콜백패턴을 만들면 1이먼저 나온후2가 나타난다. callback의 매개변수로 b()가 되면서 1이먼저 나온후 콜백함수를 작동시키되 되면서 2가 출력된다.
@@ -112,15 +112,30 @@ const getMovies = (movieName, callback) => {
 // })
 
 // 아래 방법대로 작성한다면 순서를 보장할 수 있다.
-// 하지만 콜백패턴이 지속되는 코드이기 때문에 콜백지옥이라고 할 수 있다. 콜백지옥은 양이 늘어날 수록 가독성이 점점 떨어진다.
-getMovies('frozen', () => {
-    console.log('겨울왕국!')
-    getMovies('avengers', () => {
-        console.log('어벤져스!')
-        getMovies('avatar', () => {
-            console.log('아바타!')
-        })
-    })
-})
+    // // 하지만 콜백패턴이 지속되는 코드이기 때문에 콜백지옥이라고 할 수 있다. 콜백지옥은 양이 늘어날 수록 가독성이 점점 떨어진다.
+    // getMovies('frozen', () => {
+    //     console.log('겨울왕국!')
+    //     getMovies('avengers', () => {
+    //         console.log('어벤져스!')
+    //         getMovies('avatar', () => {
+    //             console.log('아바타!')
+    //         })
+    //     })
+    // })
 
-// 콜백지옥은 Promise 클래스를 통해 해결 할 수 있다.
+// 콜백지옥은 Promise 클래스를 통해  해결 할 수 있다.
+// Promise
+
+const a1 = callback => {
+    return new Promise ((resolve) => { // Promise 클래스 사용(생성자 함수) 
+        setTimeout(() => {
+            console.log(1)
+            resolve()
+        }, 1000);
+    })
+}
+const b1 = () => console.log(2);
+
+a1().then(() => { b1() })
+
+//

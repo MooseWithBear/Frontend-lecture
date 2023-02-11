@@ -1,4 +1,4 @@
-// 동기(Synchronous)와 비동기(Asynchronous)
+//~ 동기(Synchronous)와 비동기(Asynchronous)
 // 동기 : 순차적으로 코드 실행 O
 // 비동기 : 순차적으로 코드 실행 X
 
@@ -54,7 +54,7 @@
 
     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-    // 콜백 패턴
+    //~ 콜백 패턴
     // 콜백을 이용해 비동기패턴관리를 할 수 있다.
         // const a = (callback) => {
         //     setTimeout(() => {
@@ -88,7 +88,7 @@
     //     })
     // })
 
-// 콜백패턴과 콜백지옥에 대한 추가 이해
+//~ 콜백패턴과 콜백지옥에 대한 추가 이해
 const getMovies = (movieName, callback) => {
     fetch(`https://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`)
         .then(res => res.json())
@@ -124,10 +124,10 @@ const getMovies = (movieName, callback) => {
     // })
 
 // 콜백지옥은 Promise 클래스를 통해  해결 할 수 있다.
-// Promise
+//~ Promise
 
 const a1 = callback => {
-    return new Promise ((resolve) => { // Promise 클래스 사용(생성자 함수) 
+    return new Promise (resolve => { // Promise 클래스 사용(생성자 함수) 
         setTimeout(() => {
             console.log(1)
             resolve()
@@ -136,6 +136,45 @@ const a1 = callback => {
 }
 const b1 = () => console.log(2);
 
-a1().then(() => { b1() })
+// a1().then(() => { b1() }) // 이 코드
 
-//
+
+//~ Async Await 패턴으로 비동기 제어하기
+
+const wrap = async() => { // 단순하게 변경할 수 있지만 await은 async가 붙어있는 함수 안에서만 사용할 수 있는 단점이 있다.
+    await a1()
+    b1()
+}
+// wrap();
+
+// line 104 코드를 Async Await 패턴을 사용하여 간결하게 변경해보기
+const wrap1 = async() => {
+    await getMovies('frozen')
+    console.log('겨울왕국!') // 주의! await을 console.log 앞에서 사용해선 안 된다. 
+    await getMovies('avengers') //  console.log는 return값을 반환하는 함수가 아니기 때문이다.
+    console.log('어벤져스!');   // await은 promise 인스턴스가 반환되는 함수에 사용해야한다.
+    await getMovies('avatar')
+    console.log('아바타!');
+}
+// wrap1();
+
+
+
+//~ Resolve, Reject 그리고 에러 핸들링
+
+const delayAdd = (index, cb, errorCb) => {
+    setTimeout(() => {
+        if (index > 10) {
+            errorCb(`${index}는 10보다 클 수 없습니다.`)
+            return;
+        }
+        console.log(index);
+        cb(index + 1)
+    }, 1000);
+}
+
+delayAdd(
+    4,
+    res => console.log(res),
+    err => console.log(err)
+    )

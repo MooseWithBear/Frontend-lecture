@@ -162,19 +162,53 @@ const wrap1 = async() => {
 
 //~ Resolve, Reject 그리고 에러 핸들링
 
-const delayAdd = (index, cb, errorCb) => {
-    setTimeout(() => {
-        if (index > 10) {
-            errorCb(`${index}는 10보다 클 수 없습니다.`)
-            return;
-        }
-        console.log(index);
-        cb(index + 1)
-    }, 1000);
+//& 기본적인 콜백패턴에서의 에러 핸들링 방법
+    // const delayAdd = (index, cb, errorCb) => {
+    //     setTimeout(() => {
+    //         if (index > 10) {
+    //             errorCb(`${index}는 10보다 클 수 없습니다.`)
+    //             return;
+    //         }
+    //         console.log(index);
+    //         cb(index + 1)
+    //     }, 1000);
+    // }
+
+    // delayAdd(
+    //     3, // 11부터는 에러메소드가 실행되게 된다.
+    //     res => console.log(res), // 정상 -> 첫번째 콜백실행
+    //     err => console.log(err) // 이외 -> 두번째 콜백실행 
+    //     )
+
+//& then과 catch를 이용한 방법(Promise 생성자 함수 사용)
+const delayAdd1 = index => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (index > 10) {
+                reject(`${index}는 10보다 클 수 없습니다.`)
+                return;
+            }
+            console.log(index);
+            resolve(index + 1)
+        }, 1000);
+    })
 }
 
-delayAdd(
-    4,
-    res => console.log(res),
-    err => console.log(err)
-    )
+delayAdd1(13)
+    .then(res => console.log(res))
+    .catch(err => console.error(err))
+    //finally 콜백은 조건에 상관없이 항상 실행된다
+    .finally(() => console.log('Done!'))
+
+//& Async, Await 을 사용한 방법
+const wrap2 = async () => {
+    try {
+        const res = await delayAdd1(153)
+        console.log(res);
+    } catch (err) { // 에러 발생시에는 catch구문이 실행됨
+        console.log(err);
+    } finally {
+        console.log('Done!');
+    }
+}
+wrap2()

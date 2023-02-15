@@ -23,9 +23,9 @@ console.log(element.textContent);
     class N {}
     class E extends N {}
 
-    console.dir(E)
-    console.dir(N)
-    console.dir(E.__proto__)
+    console.dir(E) // class E, [[Prototype]] : class N
+    console.dir(N) 
+    console.dir(E.__proto__) // class N (=[[Prototype]] )
     
     console.dir(Element)
     console.dir(Node)

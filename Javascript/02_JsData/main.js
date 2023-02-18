@@ -91,3 +91,4 @@ console.log(checkType([]))
 console.log(checkType({}))
 console.log(checkType(function(){}))
 
+

@@ -40,5 +40,76 @@
         // 기능: 전체 텍스트를 읽어 온 뒤에, 줄바꿈 기호를 기준으로 구분하여 리스트로 변환하기
             let fs = require('fs'); // readline 모듈보다는 fs를 이용해 파일 전체를 읽어 들여 처리
             // let input = fs.readFileSync('/dev/stdin').toString().split('\n'); 
-            let input = fs.readFileSync('input.txt').toString().split('\n');
+            // let input = fs.readFileSync('input.txt').toString().split('\n');
             console.log(input);
+
+    //* 코딩 테스트용 JavaScript 기본 입력 – readline 모듈
+        // 한 줄씩 입력을 받아서, 처리하여 정답을 출력할 때는 readline 모듈을 사용할 수 있다. replit.com node.js로 실행 참고
+            const rl = require('readline').createInterface({
+                input: process.stdin,
+                output: process.stdout
+            });
+            let input = [];
+            rl.on('line', function(line) {
+                //콘솔입력 창에서 줄바꿈(Enter)을 입력할 때마다 호출
+                input.push(line);
+            }).on('close', function() {
+                //콘솔입력 창에서 Ctrl+C 혹은 Ctrl+D를 입력하면 호출(입력의 종료)
+                console.log(input);
+                process.exit
+            })
+
+    //* JavaScript 문법 – 조건문
+        // 조건에 따라서 프로그램의 흐름을 결정할 때 사용할 수 있는 문법이다.
+        /*
+            condition: 참 혹은 거짓을 반환하는 조건식
+            statement1: condition1이 참일 때 실행되는 구문
+            statement2: condition1이 거짓이고, condition2가 참일 때 실행되는 구문
+            statement3: condition1과 condition2가 거짓이고, condition3이 참일 때 실행되는 구문 statementN: 앞의 모든 조건문이 거짓일 때 실행되는 구문
+        */
+            // if (condition1)
+            // statement1
+            // else if (condition2) statement2
+            // else if (condition3) 
+            // statement3
+            // ...
+            // else ()
+            // statementN
+
+    //* JavaScript 문법 – for 반복문
+        /*
+            - 초기문이 존재한다면 초기문이 먼저 실행된다.
+            - 조건문이 참이라면 블록 내부 코드가 실행되고, 거짓이면 반복문이 종료된다. - 블록 내부 코드가 실행된 뒤에 증감문이 실행됨.
+        */
+            for (초기문; 조건문; 증감문) {
+                // statements
+            }
+            // 1부터 100까지의 합 계산
+            let summary = 0;
+            for (let i = 1; i <= 100; i++) {
+                summary += i;
+            }
+            console.log(summary);
+
+    //* JavaScript 문법 – while 반복문
+        // 조건에 따라서 특정한 코드를 반복하고자 할 때 사용할 수 있는 코드이다.
+        /*
+            - while문은 조건문이 참일 때 실행되는 반복문입니다.
+            - 블록 내부의 코드가 실행되기 전에 참 혹은 거짓을 판단합니다. 
+        */
+            while (조건문) {
+            // 실행되는 코드 부분
+            }
+
+    //* JavaScript 문법 – Number와 String 형태 변환
+        // 수(number) 데이터와 문자열(string) 데이터간의 상호 변환이 필요하다.
+            /*
+                Int -> String
+            */
+                let a1 = "777";
+                let b1 = Number(a); console.log(b); // 777
+            /*
+                String -> Int
+            */
+                let a2 = 777;
+                let b2 = String(a); console.log(b); // "777"

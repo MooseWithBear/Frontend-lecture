@@ -127,3 +127,37 @@
                 // 원소의 합계 구하기 예제
                 let summary2 = data.reduce((a, b) => a + b);
                 console.log(summary2); // 28
+
+    //* JavaScript 문법 – 배열 초기화 방법
+        // • 알고리즘문제를풀때자주사용되는배열초기화방식은다음과같다.
+        // 직접 값을 설정하여 초기화
+        var arr = [8, 1, 4, 5, 7];
+        // 길이가 5이고 모든 원소의 값이 0인 배열 초기화
+        var arr = new Array(5).fill(0);
+    
+    //* JavaScript 문법 – 집합 자료형
+        // 특정한 원소의 등장여부를 파악할 때 집합 자료형을 효과적으로 사용할 수 있다.
+        //let mySet = new Set(); // 집합 객체 생성
+        // 여러 개의 원소 삽입
+            mySet.add(3); mySet.add(5); mySet.add(7); mySet.add(3);
+            console.log(`원소의 개수: ${mySet.size}`); console.log(`원소 7을 포함하고 있는가? ${mySet.has(7)}`);
+        // 원소 5 제거
+            mySet.delete(5);
+        // 원소를 하나씩 출력
+            for (let item of mySet) console.log(item);
+
+    //* JavaScript 문법 – 소수점 아래 특정 자리에서 반올림
+        // 실수를 출력할 때 소수점 아래 특정자리에서 반올림할 수 있다.
+        // 특정 실수에 대하여 toFixed()를 이용해 소수점 아래 둘째 자리까지 출력
+            let x = 123.456;
+            console.log(x.toFixed(2));
+
+    //* 이스케이프 시퀀스(Escape Sequence)
+        // 예약문자 혹은 특수문자를 출력하기 위하여 이스케이프 시퀀스를 사용할 수 있다.
+        /* 
+            \t 탭
+            \\ 역 슬래시
+            \” 큰 따옴표
+            \’ 작은 따옴표
+        */
+            console.log("그는 \"비범함\"을 보였다.");

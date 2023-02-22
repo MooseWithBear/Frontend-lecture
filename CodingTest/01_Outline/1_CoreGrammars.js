@@ -116,6 +116,7 @@
 
     //* JavaScript 문법 – Array.prototype.reduce()
         // 배열의 모든 원소에 대해 특정한 연산을 순차적으로 적용할 때 reduce()를 사용한다.
+        // array.reduce((acc, cur) => (acc+cur)) -> 리턴값이 새로운 acc로 개입
             /*
                 reduce() 메서드는 배열의 각 요소에 대해 reducer 함수를 실행한 뒤에 하나의 결과를 반환합니다. reducer의 형태: (accumulator, currentValue) => (반환값)
                 - 배열의 각 원소를 하나씩 확인하며, 각 원소는 currentValue에 해당합니다.
@@ -137,7 +138,7 @@
     
     //* JavaScript 문법 – 집합 자료형
         // 특정한 원소의 등장여부를 파악할 때 집합 자료형을 효과적으로 사용할 수 있다.
-        //let mySet = new Set(); // 집합 객체 생성
+            let mySet = new Set(); // 집합 객체 생성
         // 여러 개의 원소 삽입
             mySet.add(3); mySet.add(5); mySet.add(7); mySet.add(3);
             console.log(`원소의 개수: ${mySet.size}`); console.log(`원소 7을 포함하고 있는가? ${mySet.has(7)}`);

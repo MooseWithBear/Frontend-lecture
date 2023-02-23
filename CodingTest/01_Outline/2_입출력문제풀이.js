@@ -9,6 +9,14 @@
         let input = fs.readFileSync('/dev/stdin').toString().split('\n');
         // (웹에서 테스트 시에는 https://replit.com/@MooseWithBear/ssss#index.js)
         // vscode에서도 가능(npm i fs)한데 확인 필요함
+
+
     // 문제 1. Hello World: https://www.acmicpc.net/problem/2557
     // 문제 2. Hello World: https://www.acmicpc.net/problem/1000
-
+    // 문제 3. A×B: https://www.acmicpc.net/problem/10998
+            // • JavaScript를 이용해 정수를 처리해야 한다.
+            // • 이를 위해, 입력 받은 문자열 데이터를 정수로 변환해야 한다.
+            // • 이후에 곱셈을 수행한 결과를 출력한다.
+            // • fs모듈을 이용해 특정파일에서 문자열을 읽어올 수 있다.
+    // 문제 4. 사칙연산: https://www.acmicpc.net/problem/10869
+    // 문제 5. 곱셈: https://www.acmicpc.net/problem/2588

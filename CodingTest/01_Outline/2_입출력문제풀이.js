@@ -20,3 +20,7 @@
             // • fs모듈을 이용해 특정파일에서 문자열을 읽어올 수 있다.
     // 문제 4. 사칙연산: https://www.acmicpc.net/problem/10869
     // 문제 5. 곱셈: https://www.acmicpc.net/problem/2588
+    // 문제 6. 합: https://www.acmicpc.net/problem/8393
+    // 문제 7. 구구단: https://www.acmicpc.net/problem/2739
+    // 문제 8. 별 찍기 - 1: https://www.acmicpc.net/problem/2438
+    // 문제 9. 빠른 A+B: https://www.acmicpc.net/problem/15552

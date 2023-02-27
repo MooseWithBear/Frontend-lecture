@@ -22,5 +22,23 @@
     // nodeList는 유사배열(Array like)이다.
     
     const nodeList = document.querySelectorAll('.child');
-    console.log(nodeList);
+    console.log('nodeList: ', nodeList);
     nodeList.forEach(el => console.log(el.textContent))
+    console.log(Array.from(nodeList).reverse())
+
+
+//~ N.parentElement
+    // 노드의 부모 요소를 반환한다.
+
+    const el3 = document.querySelector('.child');
+    console.log(el.parentElement);
+
+
+//~ E.closest()
+    // 자신을 포함한 조상 요소 중 'CSS 선택자'와 일치하는 가장 가까운 요소를 반환한다.
+    // 요소를 찾지 못하면, `null`을 반환한다.
+
+    const el4 = document.querySelector('.child');
+    console.log('el.closest(\'div\'): ', el.closest('div'));
+    console.log('el.closest(\'body\'): ', el.closest('body'));
+    console.log('el.closest(\'.hello\'): ', el.closest('.hello'));

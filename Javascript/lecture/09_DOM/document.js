@@ -42,3 +42,11 @@
     console.log('el.closest(\'div\'): ', el.closest('div'));
     console.log('el.closest(\'body\'): ', el.closest('body'));
     console.log('el.closest(\'.hello\'): ', el.closest('.hello'));
+
+
+//~ N.previousSibling / N.nextsibling
+    // 노드의 이전 형제 혹은 다음 형제 노드를 반환한다.
+
+    const el5 = document.querySelector('.child')
+    console.log('el.previousSibling: ', el.previousSibling);
+    console.log('el.nextSibling: ', el.nextSibling);

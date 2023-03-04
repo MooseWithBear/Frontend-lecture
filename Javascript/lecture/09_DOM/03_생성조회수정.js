@@ -43,6 +43,35 @@
     `
     var childEl = document.querySelector('.child')
     var newEl = document.createElement('span');
-    newEl.textContent = '새로운요소'
+    newEl.textContent = 'I\'m insertAdjacentElement'
 
     childEl.insertAdjacentElement('beforeend', newEl)
+
+
+//~ N.insertBefore()
+    // 부모 노드의 자식인 참조 노드의 이전형제로 노드를 삽입한다.
+    // 부모_노드.insertBefore(노드, 참조_노드)
+
+    var parentEl = document.querySelector('.parent')
+    var childEl = document.querySelector('.child')
+    var newEl = document.createElement('span')
+    newEl.textContent = 'I\'m insertBefore!'
+
+    parentEl.insertBefore(newEl, childEl)
+
+
+//~ N.contains()
+    // 주어진 노드가 노드의 자신을 포함한 후손인지 확인한다.
+    // 노드.contains(주어진_노드)
+
+    var parentEl = document.querySelector('.parent')
+    var childEl = document.querySelector('.child')
+
+    parentEl.contains(childEl)
+    console.log('parentEl.contains(childEl): ', parentEl.contains(childEl));
+    console.log('document.body.contains(parentEl): ', document.body.contains(parentEl));
+    console.log('document.body.contains(childEl): ', document.body.contains(childEl));
+    console.log('document.body.contains(document.body): ', document.body.contains(document.body));
+    console.log('parentEl.contains(parentEl): ', parentEl.contains(parentEl));
+    console.log('parentEl.contains(document.body): ', parentEl.contains(document.body));
+    console.log('childEl.contains(document.body): ', childEl.contains(document.body));

@@ -75,3 +75,13 @@
     console.log('parentEl.contains(parentEl): ', parentEl.contains(parentEl));
     console.log('parentEl.contains(document.body): ', parentEl.contains(document.body));
     console.log('childEl.contains(document.body): ', childEl.contains(document.body));
+
+
+//~ N.textContent
+    // 노드의 모든 텍스트를 얻거나 변경한다.
+
+    var el = document.querySelector('.child')
+    console.log('el.textContent: ', el.textContent);
+    el.textContent = '7'
+    console.log('el.textContent: ', el.textContent);
+    

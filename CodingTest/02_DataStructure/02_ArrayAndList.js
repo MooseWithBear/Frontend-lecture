@@ -75,3 +75,19 @@
         // 내부적으로 포인터(pointer)를 사용하여, 연결 리스트의 장점도 가지고 있다.
         //^ 배열(array) 혹은 스택(stack)의 기능이 필요할 때 사용할 수 있다. (in 코딩테스트)
         // [참고] 큐(queue)의 기능을 제공하지 못한다. (비효율적)
+
+    //* 배열 초기화
+        // 1) 대괄호 사용하기 - JavaScript에서는 대괄호를 이용해 간단히 배열을 생성할 수 있다.
+            // 빈 배열 생성
+            var arr = [];
+            arr.push(7); arr.push(8); arr.push(9);
+            for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+            }
+            
+        // 2) Array() 사용하기 - JavaScript에서는 Array()를 이용해 간단히 배열을 생성할 수 있다.
+            let arr = new Array();
+            arr.push(7); arr.push(8); arr.push(9);
+            for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+            }

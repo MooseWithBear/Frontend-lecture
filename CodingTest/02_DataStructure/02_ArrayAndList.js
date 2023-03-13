@@ -86,8 +86,74 @@
             }
             
         // 2) Array() 사용하기 - JavaScript에서는 Array()를 이용해 간단히 배열을 생성할 수 있다.
-            let arr = new Array();
+            var arr = new Array();
             arr.push(7); arr.push(8); arr.push(9);
             for (let i = 0; i < arr.length; i++) {
             console.log(arr[i]);
             }
+
+        // JavaScript의 배열은 일반적인 변수 외에도 객체를 담을 수도 있다.
+            var arr = ["Hello", 777, true]; console.log(arr);
+
+        // JavaScript에서는 임의의 크기를 가지는 배열을 만들 수 있다.
+        // 원하는 값을 직접 입력하여 초기화 할 수 있다
+        // 크기가 𝑁인 1차원 배열을 만드는 방법은 다음과 같다.
+
+        // 원하는 값을 직접 입력하여 초기화
+            var arr1 = [0, 1, 2, 3, 4];
+            console.log(arr1);
+
+        // 하나의 값으로 초기화
+            var arr2 = Array.from({ length: 5 }, () => 7);
+            console.log(arr2);
+
+        //~ 크기가 N X M인 2차원 리스트(배열) 만들기 (1)
+            // 원하는 값을 직접 입력하여 초기화
+                var arr1 = [
+                [0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]
+                ];
+                console.log(arr1);
+        
+        //~ 크기가 N X M인 2차원 리스트(배열) 만들기 (2)
+            // 최신 JavaScript 환경(ES6 이상)에서 사용할 수 있는 문법이다.
+            // 한줄로 2차원 배열을 초기화 할 수 있다.
+            // 배열의 각 원소에 크기가 5인 배열을 할당한다.
+
+            var arr = Array.from(Array(4), () => new Array(5))
+            console.log(arr);
+
+        //~ 크기가 N X M인 2차원 리스트(배열) 만들기 (3)
+            // 다음과 같이 반복문을 이용해 2차원 배열을 초기화할 수 있다.
+            // 반복문을 이용해 배열 초기화
+                var arr2 = new Array(3);
+                console.log('arr2: ', arr2);
+                for (let i = 0; i < arr2.length; i++) {
+                arr2[i] = Array.from(
+                { length: 4 },
+                (undefined, j) => i * 4 + j
+                ); }
+                console.log(arr2);
+
+
+    //* JavaScript 배열 다루기
+        // JavaScript의 배열은 동적 배열이다.
+        // 배열이 생성된 이후에도 배열의 크기를 임의로 변경할 수 있다.
+        // push() 메서드를 통해 배열의 가장 뒤쪽에 새로운 원소를 추가할 수 있다.
+            var arr = [5, 6, 7, 8, 9]; arr.length = 8;
+            arr[7] = 3;
+            arr.push(1);
+            for (let x of arr) {
+            console.log(x);
+            }
+
+    //* JavaScript 배열의 대표적인 메서드
+        // concat(): 여러 개의 배열을 이어 붙여서 합친 결과를 반환한다. 𝑂(𝑁)
+        // slice(left, right): 특정 구간의 원소를 꺼낸 배열을 반환한다. 𝑂(𝑁)
+        // indexOf(): 특정한 값을 가지는 원소의 첫째 인덱스를 반환한다. 𝑂(𝑁)
+
+
+
+// 연결 리스트(Linked List)
+    // 연결 리스트는 각 노드가 한 줄로 연결되어 있는 자료구조다.
+    // 각 노드는 (데이터, 포인터) 형태를 가진다.
+    // 포인터: 다음 노드의 메모리 주소를 가리키는 목적으로 사용된다.

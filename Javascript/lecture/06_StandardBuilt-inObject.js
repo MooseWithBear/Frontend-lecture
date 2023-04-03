@@ -108,6 +108,7 @@
 // Array.isArray() : 배열데이터인지 확인한다.
 
 
+
 //! 객체 Object
 // Object.assign() : 하나 이상의 출처(Source) 객체로부터 대상(Target) 객체로 속성을 복사하고 대상객체를 반환한다.
                     // const target = {a:1,b:2}; const source1 = {b:3,c:4}; const source2 = {c:5,d:6}; const result = Object.assign(target, source1, source2) // {a:1, b:3, c:5, d:6} | target 요소 자리 앞에(즉 맨앞요소에) 빈객체를 사용하면 target변수의 데이터도 보호된다.
